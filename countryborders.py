@@ -1,3 +1,12 @@
+import duckdb
+db = duckdb.connect()
+db.execute("INSTALL spatial")
+db.execute("INSTALL httpfs")
+db.execute("""
+LOAD spatial;
+LOAD httpfs;
+SET s3_region='us-west-2';
+""")
 db.execute("""
 COPY (
     SELECT

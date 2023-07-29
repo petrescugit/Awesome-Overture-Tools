@@ -1,4 +1,4 @@
-import duckdb
+import duckdb 
 db = duckdb.connect()
 db.execute("INSTALL spatial")
 db.execute("INSTALL httpfs")

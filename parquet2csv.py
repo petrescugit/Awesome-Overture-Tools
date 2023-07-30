@@ -14,7 +14,7 @@ def convert_parquet_to_csv(input_file, output_file):
 if __name__ == "__main__":
     # Check if the script received the correct number of arguments
     if len(sys.argv) != 3:
-        print("Usage: python3 convert.py <input_file.parquet> <output_file.csv>")
+        print("Usage: python3 parquet2csv.py <input_file.parquet> <output_file.csv>")
         sys.exit(1)
 
     # Extract arguments

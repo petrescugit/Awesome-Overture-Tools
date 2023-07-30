@@ -1,7 +1,7 @@
 # Awesome-Overture-Tools
 Making Overture data accessible
 
-Downloading add data
+Downloading all data
 <code>
 pipx install awscli
 aws configure
@@ -15,7 +15,6 @@ aws s3 cp --recursive 's3://overturemaps-us-west-2/release/2023-07-26-alpha.0/th
 aws s3 cp --recursive 's3://overturemaps-us-west-2/release/2023-07-26-alpha.0/theme=admins/' /mnt/h/videos/admins
 aws s3 cp --recursive 's3://overturemaps-us-west-2/release/2023-07-26-alpha.0/theme=transportation/' /mnt/h/videos/transportation
 aws s3 cp --recursive 's3://overturemaps-us-west-2/release/2023-07-26-alpha.0/theme=transportation/' /mnt/h/videos/buildings
-
 </code>
 
 **Videos** <br/>

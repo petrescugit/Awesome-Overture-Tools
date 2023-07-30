@@ -1,6 +1,23 @@
 # Awesome-Overture-Tools
 Making Overture data accessible
 
+Downloading add data
+<code>
+pipx install awscli
+aws configure
+mkdir /mnt/f/videos
+cd /mnt/f/videos
+mkdir places
+mkdir admins
+mkdir transportation
+mkdir buildings
+aws s3 cp --recursive 's3://overturemaps-us-west-2/release/2023-07-26-alpha.0/theme=places/' /mnt/f/videos/places
+aws s3 cp --recursive 's3://overturemaps-us-west-2/release/2023-07-26-alpha.0/theme=admins/' /mnt/h/videos/admins
+aws s3 cp --recursive 's3://overturemaps-us-west-2/release/2023-07-26-alpha.0/theme=transportation/' /mnt/h/videos/transportation
+aws s3 cp --recursive 's3://overturemaps-us-west-2/release/2023-07-26-alpha.0/theme=transportation/' /mnt/h/videos/buildings
+
+</code>
+
 **Videos** <br/>
 What we know so far on the Overture Maps global dataset? (60 million places from BingMaps and Meta)  <br/>
 https://www.youtube.com/watch?v=yUDt7BkYgZU <br/>

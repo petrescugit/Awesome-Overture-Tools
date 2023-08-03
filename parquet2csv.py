@@ -1,25 +1,24 @@
-import pandas as pd
-from fastparquet import ParquetFile
+import duckdb
 import sys
 
-def convert_parquet_to_csv(input_file, output_file):
-    # Read the parquet file with fastparquet
-    pf = ParquetFile(input_file)
-    df = pf.to_pandas()
+def convert_parquet_to_csv(input_path, output_path):
+    # Connect to DuckDB
+    conn = duckdb.connect()
 
-    # Write to a csv file
-    df.to_csv(output_file, index=False)
+    # Prepare the query to read from Parquet files
+    query = f"SELECT * FROM read_parquet('{input_path}')"
 
-# Entry point of the script
+    # Execute the query and write the result to a CSV file
+    conn.execute(f"COPY ({query}) TO '{output_path}' WITH HEADER")
+
+    print(f"CSV file has been created at {output_path}")
+
 if __name__ == "__main__":
-    # Check if the script received the correct number of arguments
     if len(sys.argv) != 3:
-        print("Usage: python3 parquet2csv.py <input_file.parquet> <output_file.csv>")
+        print("Usage: python script_name.py <input_path> <output_path>")
         sys.exit(1)
 
-    # Extract arguments
-    input_file = sys.argv[1]
-    output_file = sys.argv[2]
+    input_path = sys.argv[1]
+    output_path = sys.argv[2]
 
-    # Call the conversion function
-    convert_parquet_to_csv(input_file, output_file)
+    convert_parquet_to_csv(input_path, output_path)
